@@ -84,12 +84,6 @@ def main(args):
  
     trainer.fit(system)
 
-    # Make modeleweight read-only
-    if not args.overwrite:
-        for f in Path(args.model_savepath).glob("*.pkl"):
-            print(f)
-            os.chmod(f, 0o444)
-
 
 if __name__ == "__main__":
     args = parseArgs()

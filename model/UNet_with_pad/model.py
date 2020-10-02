@@ -115,7 +115,10 @@ class UNetModel(nn.Module):
 
     def forward(self, x):
         if not self.inputs_size:
-            self.inputs_size.append(x.size())
+            inputs_size = []
+            inputs_size.append(x.size())
+            self.inputs_size = inputs_size
+
         conv_results = []
         for contract in self.contracts:
             x, conv_result = contract(x)
