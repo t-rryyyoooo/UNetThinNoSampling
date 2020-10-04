@@ -2,7 +2,7 @@
 	"dataset_path" : "/sandisk/data/patch/Abdomen/with_pad/512-512-8-1/original/mask",
 	"model_savepath" : "/home/vmlab/Desktop/data/modelweight/Abdomen/with_pad/512-512-8-1/original/mask/for_comb",
 	"train_lists" : {
-        "fold1" : "20 21 22 23 24 25 26 27 28 29 ",
+        "fold1" : "20 21 22 23 24 25 26 27 28 29",
         "fold2" : "00 01 02 03 04 05 06 07 08 09",
         "fold3" : "10 11 12 13 14 15 16 17 18 19"
     },
