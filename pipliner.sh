@@ -35,6 +35,7 @@ readonly NUM_CLASS=$(cat ${JSON_FILE} | jq -r ".num_class")
 readonly LEARNING_RATE=$(cat ${JSON_FILE} | jq -r ".learning_rate")
 readonly BATCH_SIZE=$(cat ${JSON_FILE} | jq -r ".batch_size")
 readonly NUM_WORKERS=$(cat ${JSON_FILE} | jq -r ".num_workers")
+readonly DROPOUT=$(cat ${JSON_FILE} | jq -r ".dropout")
 readonly EPOCH=$(cat ${JSON_FILE} | jq -r ".epoch")
 readonly GPU_IDS=$(cat ${JSON_FILE} | jq -r ".gpu_ids")
 readonly API_KEY=$(cat ${JSON_FILE} | jq -r ".api_key")
@@ -89,13 +90,14 @@ do
  echo "LEARNING_RATE:${LEARNING_RATE}"
  echo "BATCH_SIZE:${BATCH_SIZE}"
  echo "NUM_WORKERS:${NUM_WORKERS}"
+ echo "DROPOUT:${DROPOUT}"
  echo "EPOCH:${EPOCH}"
  echo "GPU_IDS:${GPU_IDS}"
  echo "API_KEY:${API_KEY}"
  echo "PROJECT_NAME:${PROJECT_NAME}"
  echo "EXPERIMENT_NAME:${experiment_name}"
 
- python3 train.py ${dataset_path} ${model_savepath} ${MODULE_NAME} ${SYSTEM_NAME} ${CHECKPOINT_NAME} --train_list ${TRAIN_LIST} --val_list ${VAL_LIST} --log ${log} --in_channel ${IN_CHANNEL} --num_class ${NUM_CLASS} --lr ${LEARNING_RATE} --batch_size ${BATCH_SIZE} --num_workers ${NUM_WORKERS} --epoch ${EPOCH} --gpu_ids ${GPU_IDS} --api_key ${API_KEY} --project_name ${PROJECT_NAME} --experiment_name ${experiment_name}
+ python3 train.py ${dataset_path} ${model_savepath} ${MODULE_NAME} ${SYSTEM_NAME} ${CHECKPOINT_NAME} --train_list ${TRAIN_LIST} --val_list ${VAL_LIST} --log ${log} --in_channel ${IN_CHANNEL} --num_class ${NUM_CLASS} --lr ${LEARNING_RATE} --batch_size ${BATCH_SIZE} --num_workers ${NUM_WORKERS} --epoch ${EPOCH} --gpu_ids ${GPU_IDS} --api_key ${API_KEY} --project_name ${PROJECT_NAME} --experiment_name ${experiment_name} --dropout ${DROPOUT}
 
  if [ $? -ne 0 ];then
   exit 1
