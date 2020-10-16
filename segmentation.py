@@ -28,6 +28,9 @@ def main(args):
     """ Slice module. """
     image = sitk.ReadImage(args.image_path)
     dummy = sitk.Image(image.GetSize(), sitk.sitkUInt8)
+    dummy.SetSpacing(image.GetSpacing())
+    dummy.SetDirection(image.GetDirection())
+    dummy.SetOrigin(image.GetOrigin())
 
     tpc = ThinPatchCreater(
             image = image,
